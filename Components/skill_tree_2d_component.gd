@@ -40,7 +40,7 @@ func _ready() -> void:
 	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	texture_rect.stretch_mode = TextureRect.STRETCH_SCALE
 	texture_rect.z_index = -100
-	_update_character_feature_states()
+	_update_world_feature_states()
 	queue_rebuild()
 
 
@@ -63,7 +63,7 @@ func compile_skill_activation_states(skill_nodes: Array[skill_node]) -> void:
 			continue
 		skill_activation_states[node.data.id] = node.activated
 	if is_node_ready():
-		_update_character_feature_states()
+		_update_world_feature_states()
 
 
 func is_skill_activated(skill_id: StringName) -> bool:
@@ -73,20 +73,25 @@ func is_skill_activated(skill_id: StringName) -> bool:
 func _on_skill_activation_changed(skill_id: StringName, enabled: bool) -> void:
 	skill_activation_states[skill_id] = enabled
 	print("Skill activation changed: id=%s enabled=%s" % [skill_id, enabled])
-	if (
-		skill_id == MULTIPLE_IMAGES_SKILL_ID
-		or skill_id == VELOCITY_AND_ACCELERATION_SKILL_ID
-	):
-		_update_character_feature_states()
+	_update_world_feature_states()
 
 
-func _update_character_feature_states() -> void:
+func _update_world_feature_states() -> void:
 	var animations_enabled := is_skill_activated(MULTIPLE_IMAGES_SKILL_ID)
 	var dash_enabled := is_skill_activated(VELOCITY_AND_ACCELERATION_SKILL_ID)
 	for descendant in find_children("*", "", true, false):
 		if descendant.is_in_group(&"skill_tree_characters"):
 			descendant.set(&"animations_enabled", animations_enabled)
 			descendant.set(&"dash_enabled", dash_enabled)
+		if descendant.is_in_group(&"skill_tree_world_feature_visuals"):
+			var activation_skill_id: StringName = descendant.get(
+				&"activation_skill_id"
+			)
+			descendant.set(
+				&"enabled",
+				is_skill_activated(activation_skill_id)
+			)
+			descendant.set(&"animations_enabled", animations_enabled)
 
 
 func rebuild() -> void:

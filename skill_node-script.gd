@@ -26,8 +26,11 @@ var _marker_flow_angle_degrees := DEFAULT_MARKER_FLOW_ANGLE
 
 @export var activated := false:
 	set(value):
-		var state_changed := activated != value
-		activated = value
+		var next_value := value
+		if next_value and is_node_ready() and is_activation_disabled():
+			next_value = false
+		var state_changed := activated != next_value
+		activated = next_value
 		if is_node_ready():
 			_update_activated_indicator()
 			if state_changed and data != null:
@@ -45,6 +48,8 @@ var _marker_flow_angle_degrees := DEFAULT_MARKER_FLOW_ANGLE
 @onready var skill_background_colorRect: ColorRect = $BillboardVisuals/ColorRect
 
 var unlock_status_colors: Array[Color] = [Color("262626"), Color("156a8c")]
+var _activation_skill_id := &""
+var _last_activation_progress_status := -1
 
 
 func _ready() -> void:
@@ -153,6 +158,7 @@ func refresh() -> void:
 	if data == null:
 		push_warning("Skill node has no SkillData resource assigned.")
 		return
+	_sync_activation_with_progress()
 	set_skill_name()
 	set_disabled_cross()
 	set_unlock_status_label()
@@ -170,7 +176,33 @@ func get_unlock_status() -> SkillProgress.Status:
 
 
 func toggle_activated() -> void:
+	if is_activation_disabled():
+		return
 	activated = not activated
+
+
+func is_activation_disabled() -> bool:
+	return (
+		data == null
+		or data.disabled
+		or get_unlock_status() == SkillProgress.Status.DISABLED
+	)
+
+
+func _sync_activation_with_progress() -> void:
+	if _activation_skill_id != data.id:
+		_activation_skill_id = data.id
+		_last_activation_progress_status = -1
+
+	var status := get_unlock_status()
+	if is_activation_disabled():
+		activated = false
+	elif (
+		status == SkillProgress.Status.SKILLED
+		and _last_activation_progress_status != SkillProgress.Status.SKILLED
+	):
+		activated = true
+	_last_activation_progress_status = status
 
 
 func _update_activated_indicator() -> void:

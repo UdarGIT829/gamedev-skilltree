@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://yvxyp2gluow5"]
+
+[ext_resource type="Script" uid="uid://bwq50gq7ap0k7" path="res://SkillVisuals/infinite_loop_world_visual.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://8ok4apv04su0" path="res://Assetpacks/sprite.png" id="2_ninja"]
+[ext_resource type="Texture2D" uid="uid://bh2uf8g352lb5" path="res://Assetpacks/bigrock.png" id="3_big_rock"]
+[ext_resource type="Texture2D" uid="uid://vfuia6vsmgpr" path="res://Assetpacks/smolrock.png" id="4_small_rock"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frame"]
+bg_color = Color(0.055, 0.078, 0.105, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.32, 0.42, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="QuadMesh" id="QuadMesh_small_rock"]
+size = Vector2(794, 794)
+
+[sub_resource type="MultiMesh" id="MultiMesh_small_rocks"]
+resource_local_to_scene = true
+mesh = SubResource("QuadMesh_small_rock")
+
+[node name="InfiniteLoopWorldVisual" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 240.0
+mouse_filter = 2
+script = ExtResource("1_script")
+jump_to_ground_seconds = 0.35
+impact_pause_seconds = 0.0
+jump_to_rock_height = 64.0
+jump_to_ground_height = 50.0
+
+[node name="LoopTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Background" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_frame")
+
+[node name="SkyGlow" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 238.0
+offset_bottom = 214.0
+mouse_filter = 2
+color = Color(0.075, 0.135, 0.18, 1)
+
+[node name="Ground" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 214.0
+offset_right = 238.0
+offset_bottom = 238.0
+mouse_filter = 2
+color = Color(0.13, 0.19, 0.18, 1)
+
+[node name="GroundEdge" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 211.0
+offset_right = 238.0
+offset_bottom = 216.0
+mouse_filter = 2
+color = Color(0.31, 0.46, 0.31, 1)
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="BigRock" type="Sprite2D" parent="World"]
+texture_filter = 1
+position = Vector2(145, 180)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_big_rock")
+
+[node name="SmallRocks" type="MultiMeshInstance2D" parent="World"]
+z_index = 1
+texture_filter = 1
+multimesh = SubResource("MultiMesh_small_rocks")
+texture = ExtResource("4_small_rock")
+
+[node name="NinjaBlueVisual" type="Sprite2D" parent="World"]
+z_index = 2
+texture_filter = 1
+position = Vector2(45, 190)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ninja")
+hframes = 4
+vframes = 7
+frame = 3
