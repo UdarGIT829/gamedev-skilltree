@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://2r6exhxkixj7"]
+[gd_scene load_steps=6 format=3 uid="uid://2r6exhxkixj7"]
 
 [ext_resource type="Script" uid="uid://l7ir2y0h5sa5" path="res://skill_node-script.gd" id="1_m8cli"]
 [ext_resource type="Resource" uid="uid://cs2js87e7j0p1" path="res://SkillNodes/storeinanarray.tres" id="2_fbu8u"]
@@ -8,6 +8,9 @@
 script = ExtResource("3_0isc3")
 statuses = Dictionary[StringName, int]({})
 metadata/_custom_type_script = "uid://b5obup7w0nrex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_landing_area"]
+size = Vector2(240, 240)
 
 [node name="Skill Node" type="Control"]
 layout_mode = 3
@@ -26,6 +29,13 @@ offset_right = 240.0
 offset_bottom = 240.0
 pivot_offset = Vector2(120, 120)
 mouse_filter = 2
+
+[node name="LandingArea" type="Area2D" parent="BillboardVisuals"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BillboardVisuals/LandingArea"]
+position = Vector2(120, 120)
+shape = SubResource("RectangleShape2D_landing_area")
 
 [node name="Button" type="Button" parent="BillboardVisuals"]
 layout_mode = 0
@@ -57,11 +67,21 @@ offset_right = 240.0
 offset_bottom = 240.0
 mouse_filter = 2
 
-[node name="Skill Name Label" type="Label" parent="BillboardVisuals/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BillboardVisuals/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Skill Name Label" type="Label" parent="BillboardVisuals/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 text = "Store in an array"
 horizontal_alignment = 1
+
+[node name="ActivatedColorRect" type="ColorRect" parent="BillboardVisuals/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="BillboardVisuals/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)

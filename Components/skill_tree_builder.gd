@@ -183,6 +183,8 @@ func sync_tree() -> void:
 	tree.claim_skill_ids = ordered_skill_ids
 	_compile_quiz(tree)
 	_refresh_resource_connections()
+	if not Engine.is_editor_hint():
+		tree.refresh_skill_node_bindings()
 	_queue_2d_component_rebuild(tree)
 
 

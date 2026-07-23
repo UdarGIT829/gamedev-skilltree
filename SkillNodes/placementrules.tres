@@ -9,6 +9,6 @@ display_name = "Placement Rules"
 description = ""
 claim = "When the game creates objects automatically, it still needs rules for where those objects are allowed to appear."
 tier = 6
-prerequisite_ids = Array[StringName]([&"viewportspawning"])
+prerequisite_ids = Array[StringName]([&"pathing"])
 disabled = false
 metadata/_custom_type_script = "uid://d2sjfotd67vd8"

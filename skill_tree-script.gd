@@ -11,6 +11,7 @@ signal quiz_reset_requested
 signal quiz_input_received(input: QuizInputContract)
 signal quiz_output_received(output: QuizOutputContract)
 signal skill_selected(skill: SkillData)
+signal skill_activation_changed(skill_id: StringName, enabled: bool)
 
 @export var tree_data: SkillTreeData
 @export var progress: SkillProgress
@@ -25,22 +26,38 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	skill_detail_popup.closed.connect(_on_skill_popup_closed)
-	_connect_skill_nodes()
+	refresh_skill_node_bindings()
 
 
-func _connect_skill_nodes() -> void:
+func refresh_skill_node_bindings() -> void:
+	var skill_nodes: Array[skill_node] = []
 	for descendant in find_children("*", "", true, false):
 		if not descendant is skill_node:
 			continue
 		var node := descendant as skill_node
+		if node.is_queued_for_deletion():
+			continue
+		skill_nodes.append(node)
 		if not node.skill_selected.is_connected(_on_skill_node_selected):
 			node.skill_selected.connect(_on_skill_node_selected)
+		if not node.activation_changed.is_connected(_on_skill_node_activation_changed):
+			node.activation_changed.connect(_on_skill_node_activation_changed)
+
+	var component := get_node_or_null("2d-component") as SkillTree2DComponent
+	if component != null:
+		component.compile_skill_activation_states(skill_nodes)
 
 
 func _on_skill_node_selected(skill: SkillData) -> void:
 	skill_selected.emit(skill)
 	controller_component.set_process_input(false)
 	skill_detail_popup.show_skill(skill)
+
+
+func _on_skill_node_activation_changed(skill: SkillData, enabled: bool) -> void:
+	if skill == null or skill.id.is_empty():
+		return
+	skill_activation_changed.emit(skill.id, enabled)
 
 
 func _on_skill_popup_closed() -> void:

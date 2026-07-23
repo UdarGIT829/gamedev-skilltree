@@ -9,6 +9,6 @@ display_name = "3D vertices and triangles"
 description = ""
 claim = "A 3D object is made of vertices positioned in space and the triangles that connect them."
 tier = 8
-prerequisite_ids = Array[StringName]([&"unrealisticlighting", &"pathing"])
+prerequisite_ids = Array[StringName]([&"unrealisticlighting", &"viewportspawning"])
 disabled = false
 metadata/_custom_type_script = "uid://d2sjfotd67vd8"

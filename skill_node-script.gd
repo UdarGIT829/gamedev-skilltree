@@ -3,11 +3,14 @@ extends Control
 class_name skill_node
 
 signal skill_selected(skill: SkillData)
+signal activation_changed(skill: SkillData, enabled: bool)
 
 const DEFAULT_MARKER_FLOW_ANGLE := 90.0
 const DISABLED_SKILL_STATUS := 3
 const MARKER_CENTER := Vector2(120.0, 120.0)
 const BASE_POSITION_META := &"skill_node_base_marker_position_v2"
+const ACTIVATED_INDICATOR_COLOR := Color("35d07f")
+const DEACTIVATED_INDICATOR_COLOR := Color("ff0000")
 
 @export var data: SkillData
 @export var progress: SkillProgress:
@@ -21,8 +24,18 @@ const BASE_POSITION_META := &"skill_node_base_marker_position_v2"
 			refresh()
 var _marker_flow_angle_degrees := DEFAULT_MARKER_FLOW_ANGLE
 
+@export var activated := false:
+	set(value):
+		var state_changed := activated != value
+		activated = value
+		if is_node_ready():
+			_update_activated_indicator()
+			if state_changed and data != null:
+				activation_changed.emit(data, activated)
+@onready var activated_colorRect: ColorRect = $BillboardVisuals/VBoxContainer/HBoxContainer/ActivatedColorRect
+
 @onready var billboard_visuals: Control = $BillboardVisuals
-@onready var skill_name_label 		:Label= $"BillboardVisuals/VBoxContainer/Skill Name Label"
+@onready var skill_name_label: Label = $"BillboardVisuals/VBoxContainer/HBoxContainer/Skill Name Label"
 @onready var skill_icon				:TextureRect= $BillboardVisuals/VBoxContainer/TextureRect
 @onready var skill_unlocked_label	:Label= $"BillboardVisuals/VBoxContainer/Unlock Status Label"
 @onready var skill_unlocked_icon	:TextureButton= $"BillboardVisuals/Unlocked Button"
@@ -40,6 +53,7 @@ func _ready() -> void:
 		main_button.pressed.connect(_on_skill_selected)
 	_update_billboard()
 	_update_marker_rotation()
+	_update_activated_indicator()
 	refresh()
 
 
@@ -153,6 +167,18 @@ func get_unlock_status() -> SkillProgress.Status:
 	# scene is rebuilding. Exported properties remain safe to read, whereas
 	# calling a method on a placeholder does not.
 	return progress.statuses.get(data.id, SkillProgress.Status.LOCKED)
+
+
+func toggle_activated() -> void:
+	activated = not activated
+
+
+func _update_activated_indicator() -> void:
+	activated_colorRect.color = (
+		ACTIVATED_INDICATOR_COLOR
+		if activated
+		else DEACTIVATED_INDICATOR_COLOR
+	)
 
 
 func set_disabled_cross():

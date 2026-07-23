@@ -1,22 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://co5qpuj3hns3e"]
 
-[ext_resource type="Script" uid="uid://bnbnx0nc4p1wq" path="res://Assetpacks/ninja_blue.gd" id="1_controller"]
-[ext_resource type="Texture2D" uid="uid://8ok4apv04su0" path="res://Assetpacks/sprite.png" id="2_sprite"]
+[ext_resource type="PackedScene" path="res://Assetpacks/character_template.tscn" id="1_template"]
+[ext_resource type="Script" uid="uid://bnbnx0nc4p1wq" path="res://Assetpacks/ninja_blue.gd" id="2_ninja"]
+[ext_resource type="Texture2D" uid="uid://8ok4apv04su0" path="res://Assetpacks/sprite.png" id="3_sprite"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ninja"]
-radius = 7.0
+[node name="NinjaBlue" instance=ExtResource("1_template")]
+script = ExtResource("2_ninja")
 
-[node name="NinjaBlue" type="CharacterBody2D"]
-motion_mode = 1
-script = ExtResource("1_controller")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("2_sprite")
-offset = Vector2(0, -6)
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("3_sprite")
 hframes = 4
 vframes = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("CircleShape2D_ninja")

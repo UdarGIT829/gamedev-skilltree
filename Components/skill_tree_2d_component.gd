@@ -4,6 +4,9 @@ class_name SkillTree2DComponent
 
 signal texture_rebuilt(texture: ImageTexture, world_bounds: Rect2)
 
+const MULTIPLE_IMAGES_SKILL_ID := &"multipleimages"
+const VELOCITY_AND_ACCELERATION_SKILL_ID := &"velocityandacceleration"
+
 @export var branch_colors: Array[Color] = [
 	Color(0.93, 0.29, 0.36, 0.42),
 	Color(0.20, 0.72, 0.48, 0.42),
@@ -26,6 +29,7 @@ signal texture_rebuilt(texture: ImageTexture, world_bounds: Rect2)
 var map_bounds := Rect2()
 var shoreline_polygon := PackedVector2Array()
 var actual_pixels_per_world_unit := 0.0
+@export var skill_activation_states: Dictionary[StringName, bool] = {}
 var _rebuild_queued := false
 var _observed_areas: Array[BranchArea2DComponent] = []
 
@@ -36,6 +40,7 @@ func _ready() -> void:
 	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	texture_rect.stretch_mode = TextureRect.STRETCH_SCALE
 	texture_rect.z_index = -100
+	_update_character_feature_states()
 	queue_rebuild()
 
 
@@ -49,6 +54,39 @@ func queue_rebuild() -> void:
 func _run_queued_rebuild() -> void:
 	_rebuild_queued = false
 	rebuild()
+
+
+func compile_skill_activation_states(skill_nodes: Array[skill_node]) -> void:
+	skill_activation_states.clear()
+	for node in skill_nodes:
+		if node == null or node.data == null or node.data.id.is_empty():
+			continue
+		skill_activation_states[node.data.id] = node.activated
+	if is_node_ready():
+		_update_character_feature_states()
+
+
+func is_skill_activated(skill_id: StringName) -> bool:
+	return skill_activation_states.get(skill_id, false)
+
+
+func _on_skill_activation_changed(skill_id: StringName, enabled: bool) -> void:
+	skill_activation_states[skill_id] = enabled
+	print("Skill activation changed: id=%s enabled=%s" % [skill_id, enabled])
+	if (
+		skill_id == MULTIPLE_IMAGES_SKILL_ID
+		or skill_id == VELOCITY_AND_ACCELERATION_SKILL_ID
+	):
+		_update_character_feature_states()
+
+
+func _update_character_feature_states() -> void:
+	var animations_enabled := is_skill_activated(MULTIPLE_IMAGES_SKILL_ID)
+	var dash_enabled := is_skill_activated(VELOCITY_AND_ACCELERATION_SKILL_ID)
+	for descendant in find_children("*", "", true, false):
+		if descendant.is_in_group(&"skill_tree_characters"):
+			descendant.set(&"animations_enabled", animations_enabled)
+			descendant.set(&"dash_enabled", dash_enabled)
 
 
 func rebuild() -> void:

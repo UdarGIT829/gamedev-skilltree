@@ -68,33 +68,33 @@ destination = ExtResource("12_xf2ji")
 
 [sub_resource type="Resource" id="Resource_wwonm"]
 script = ExtResource("2_1yvbt")
-source = ExtResource("7_uog8v")
-destination = ExtResource("13_n1kxt")
+source = ExtResource("12_xf2ji")
+destination = ExtResource("17_0jlhx")
 
 [sub_resource type="Resource" id="Resource_v2p7d"]
 script = ExtResource("2_1yvbt")
-source = ExtResource("13_n1kxt")
-destination = ExtResource("15_40vc0")
+source = ExtResource("12_xf2ji")
+destination = ExtResource("18_lh1ij")
 
 [sub_resource type="Resource" id="Resource_awigg"]
 script = ExtResource("2_1yvbt")
-source = ExtResource("16_jbaa2")
+source = ExtResource("13_n1kxt")
 destination = ExtResource("12_xf2ji")
 
 [sub_resource type="Resource" id="Resource_6x4vl"]
 script = ExtResource("2_1yvbt")
-source = ExtResource("15_40vc0")
+source = ExtResource("7_uog8v")
 destination = ExtResource("16_jbaa2")
 
 [sub_resource type="Resource" id="Resource_ghvou"]
 script = ExtResource("2_1yvbt")
-source = ExtResource("12_xf2ji")
-destination = ExtResource("17_0jlhx")
+source = ExtResource("15_40vc0")
+destination = ExtResource("13_n1kxt")
 
 [sub_resource type="Resource" id="Resource_2jp30"]
 script = ExtResource("2_1yvbt")
-source = ExtResource("12_xf2ji")
-destination = ExtResource("18_lh1ij")
+source = ExtResource("16_jbaa2")
+destination = ExtResource("15_40vc0")
 
 [node name="Skill Branch" type="Control"]
 layout_mode = 3
@@ -107,8 +107,8 @@ script = ExtResource("1_rsxem")
 data = ExtResource("2_vthio")
 progress = SubResource("Resource_d6fe4")
 claims = Array[String](["One game object can use multiple images depending on what it is doing or how it should look.
-", "Movement buttons create velocity in a direction. Gravity creates acceleration toward Earth. A downward-pointing fan and gravity can therefore produce the same movement effect.", "A sprite is pixels drawn inside a square, but the object's collision or overlap shape does not need to be that square.", "I can arrange pixels of different colors so they appear to blend into another color or shade.", "I can deliberately control the colors in a game so the artwork feels consistent and stylish.", "I can reduce an image to a chosen palette by replacing similar colors with selected colors.", "Lighting in a game should prioritize style, even when it does not behave like real light.", "A 3D object is made of vertices positioned in space and the triangles that connect them.", "I can create and remove objects based on what part of the world the player can currently see.", "When the game creates objects automatically, it still needs rules for where those objects are allowed to appear.", "I should fully understand where a character can and cannot move based on its code WITHOUT running the game. ", "The color of the triangles between 3D vertices can be calculated with a fragment shader.", "A vertex shader can change where 3D vertices appear to be without automatically changing the object's physics."])
-claim_skill_ids = Array[StringName]([&"multipleimages", &"velocityandacceleration", &"complexcollisionboxes", &"dithering", &"colorpalettes", &"colorquantization", &"unrealisticlighting", &"3dvertexandtris", &"viewportspawning", &"placementrules", &"pathing", &"fragmentshader", &"vertexshader"])
+", "Movement buttons create velocity in a direction. Gravity creates acceleration toward Earth. A downward-pointing fan and gravity can therefore produce the same movement effect.", "A sprite is pixels drawn inside a square, but the object's collision or overlap shape does not need to be that square.", "I can arrange pixels of different colors so they appear to blend into another color or shade.", "I can deliberately control the colors in a game so the artwork feels consistent and stylish.", "I can reduce an image to a chosen palette by replacing similar colors with selected colors.", "Lighting in a game should prioritize style, even when it does not behave like real light.", "A 3D object is made of vertices positioned in space and the triangles that connect them.", "I should fully understand where a character can and cannot move based on its code WITHOUT running the game. ", "When the game creates objects automatically, it still needs rules for where those objects are allowed to appear.", "I can create and remove objects based on what part of the world the player can currently see.", "The color of the triangles between 3D vertices can be calculated with a fragment shader.", "A vertex shader can change where 3D vertices appear to be without automatically changing the object's physics."])
+claim_skill_ids = Array[StringName]([&"multipleimages", &"velocityandacceleration", &"complexcollisionboxes", &"dithering", &"colorpalettes", &"colorquantization", &"unrealisticlighting", &"3dvertexandtris", &"pathing", &"placementrules", &"viewportspawning", &"fragmentshader", &"vertexshader"])
 
 [node name="multipleimages" parent="." instance=ExtResource("9_8tcd0")]
 layout_mode = 1
@@ -117,8 +117,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.0
 offset_top = 0.0
-offset_right = 7152.0
-offset_bottom = 4128.0
+offset_right = 8304.0
+offset_bottom = 4776.0
 grow_horizontal = 2
 grow_vertical = 2
 data = ExtResource("5_40vc0")
@@ -134,8 +134,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.5299e-05
 offset_top = 350.0
-offset_right = 7152.0
-offset_bottom = 4478.0
+offset_right = 8304.0
+offset_bottom = 5126.0
 grow_horizontal = 2
 grow_vertical = 2
 data = ExtResource("6_jbaa2")
@@ -151,8 +151,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0598e-05
 offset_top = 700.0
-offset_right = 7152.0
-offset_bottom = 4828.0
+offset_right = 8304.0
+offset_bottom = 5476.0
 grow_horizontal = 2
 grow_vertical = 2
 data = ExtResource("7_uog8v")
@@ -168,8 +168,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -300.0
 offset_top = 1050.0
-offset_right = 6852.0
-offset_bottom = 5178.0
+offset_right = 8004.0
+offset_bottom = 5826.0
 grow_horizontal = 2
 grow_vertical = 2
 data = ExtResource("8_0jlhx")
@@ -185,8 +185,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -300.0
 offset_top = 1400.0
-offset_right = 6852.0
-offset_bottom = 5528.0
+offset_right = 8004.0
+offset_bottom = 6176.0
 grow_horizontal = 2
 grow_vertical = 2
 data = ExtResource("9_lh1ij")
@@ -202,8 +202,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -300.0
 offset_top = 1750.0
-offset_right = 6852.0
-offset_bottom = 5878.0
+offset_right = 8004.0
+offset_bottom = 6526.0
 grow_horizontal = 2
 grow_vertical = 2
 data = ExtResource("10_s3mw7")
@@ -219,8 +219,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -300.0
 offset_top = 2100.0
-offset_right = 6852.0
-offset_bottom = 6228.0
+offset_right = 8004.0
+offset_bottom = 6876.0
 grow_horizontal = 2
 grow_vertical = 2
 data = ExtResource("11_gg2hw")
@@ -236,8 +236,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -0.000107093
 offset_top = 2450.0
-offset_right = 7152.0
-offset_bottom = 6578.0
+offset_right = 8304.0
+offset_bottom = 7226.0
 grow_horizontal = 2
 grow_vertical = 2
 data = ExtResource("12_xf2ji")
@@ -246,22 +246,16 @@ metadata/skill_branch_builder_generated = true
 metadata/generated_kind = &"node"
 metadata/skill_id = &"3dvertexandtris"
 
-[node name="viewportspawning" parent="." instance=ExtResource("9_8tcd0")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="pathing" parent="." instance=ExtResource("9_8tcd0")]
 offset_left = 300.0
 offset_top = 1400.0
-offset_right = 7452.0
-offset_bottom = 5528.0
-grow_horizontal = 2
-grow_vertical = 2
-data = ExtResource("13_n1kxt")
+offset_right = 300.0
+offset_bottom = 1400.0
+data = ExtResource("16_jbaa2")
 progress = SubResource("Resource_d6fe4")
 metadata/skill_branch_builder_generated = true
 metadata/generated_kind = &"node"
-metadata/skill_id = &"viewportspawning"
+metadata/skill_id = &"pathing"
 
 [node name="placementrules" parent="." instance=ExtResource("9_8tcd0")]
 offset_left = 300.0
@@ -274,16 +268,22 @@ metadata/skill_branch_builder_generated = true
 metadata/generated_kind = &"node"
 metadata/skill_id = &"placementrules"
 
-[node name="pathing" parent="." instance=ExtResource("9_8tcd0")]
+[node name="viewportspawning" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 300.0
 offset_top = 2100.0
-offset_right = 300.0
-offset_bottom = 2100.0
-data = ExtResource("16_jbaa2")
+offset_right = 8604.0
+offset_bottom = 6876.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("13_n1kxt")
 progress = SubResource("Resource_d6fe4")
 metadata/skill_branch_builder_generated = true
 metadata/generated_kind = &"node"
-metadata/skill_id = &"pathing"
+metadata/skill_id = &"viewportspawning"
 
 [node name="fragmentshader" parent="." instance=ExtResource("9_8tcd0")]
 offset_left = -300.0
@@ -369,44 +369,44 @@ metadata/skill_branch_builder_generated = true
 metadata/generated_kind = &"path"
 metadata/path_id = &"unrealisticlighting->3dvertexandtris"
 
-[node name="complexcollisionboxes_to_viewportspawning" parent="." instance=ExtResource("11_vthio")]
-layout_mode = 1
-data = SubResource("Resource_wwonm")
-metadata/skill_branch_builder_generated = true
-metadata/generated_kind = &"path"
-metadata/path_id = &"complexcollisionboxes->viewportspawning"
-
-[node name="viewportspawning_to_placementrules" parent="." instance=ExtResource("11_vthio")]
-layout_mode = 1
-data = SubResource("Resource_v2p7d")
-metadata/skill_branch_builder_generated = true
-metadata/generated_kind = &"path"
-metadata/path_id = &"viewportspawning->placementrules"
-
-[node name="pathing_to_3dvertexandtris" parent="." instance=ExtResource("11_vthio")]
-layout_mode = 1
-data = SubResource("Resource_awigg")
-metadata/skill_branch_builder_generated = true
-metadata/generated_kind = &"path"
-metadata/path_id = &"pathing->3dvertexandtris"
-
-[node name="placementrules_to_pathing" parent="." instance=ExtResource("11_vthio")]
-layout_mode = 1
-data = SubResource("Resource_6x4vl")
-metadata/skill_branch_builder_generated = true
-metadata/generated_kind = &"path"
-metadata/path_id = &"placementrules->pathing"
-
 [node name="3dvertexandtris_to_fragmentshader" parent="." instance=ExtResource("11_vthio")]
 layout_mode = 1
-data = SubResource("Resource_ghvou")
+data = SubResource("Resource_wwonm")
 metadata/skill_branch_builder_generated = true
 metadata/generated_kind = &"path"
 metadata/path_id = &"3dvertexandtris->fragmentshader"
 
 [node name="3dvertexandtris_to_vertexshader" parent="." instance=ExtResource("11_vthio")]
 layout_mode = 1
-data = SubResource("Resource_2jp30")
+data = SubResource("Resource_v2p7d")
 metadata/skill_branch_builder_generated = true
 metadata/generated_kind = &"path"
 metadata/path_id = &"3dvertexandtris->vertexshader"
+
+[node name="viewportspawning_to_3dvertexandtris" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_awigg")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"viewportspawning->3dvertexandtris"
+
+[node name="complexcollisionboxes_to_pathing" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_6x4vl")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"complexcollisionboxes->pathing"
+
+[node name="placementrules_to_viewportspawning" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_ghvou")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"placementrules->viewportspawning"
+
+[node name="pathing_to_placementrules" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_2jp30")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"pathing->placementrules"

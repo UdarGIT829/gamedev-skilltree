@@ -22,6 +22,6 @@ script = ExtResource("2_ci24m")
 id = &"visualsandphysics"
 display_name = "Visuals & Physics"
 description = "asfasfsa"
-skills = Array[ExtResource("3_8y8wk")]([ExtResource("4_jxaq1"), ExtResource("5_dlkml"), ExtResource("6_7ckrf"), ExtResource("7_fal0e"), ExtResource("8_1mom5"), ExtResource("9_ptp1n"), ExtResource("10_tqvap"), ExtResource("11_3n70m"), ExtResource("12_uiwk6"), ExtResource("13_ci24m"), ExtResource("14_8y8wk"), ExtResource("15_jxaq1"), ExtResource("16_dlkml")])
+skills = Array[ExtResource("3_8y8wk")]([ExtResource("4_jxaq1"), ExtResource("5_dlkml"), ExtResource("6_7ckrf"), ExtResource("7_fal0e"), ExtResource("8_1mom5"), ExtResource("9_ptp1n"), ExtResource("10_tqvap"), ExtResource("11_3n70m"), ExtResource("14_8y8wk"), ExtResource("13_ci24m"), ExtResource("12_uiwk6"), ExtResource("15_jxaq1"), ExtResource("16_dlkml")])
 paths = Array[ExtResource("1_gj2jn")]([])
 metadata/_custom_type_script = "uid://culne41vqkap6"

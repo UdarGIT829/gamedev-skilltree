@@ -6,6 +6,8 @@ signal zoom_requested(steps: float, screen_position: Vector2)
 signal drag_state_changed(dragging: bool)
 signal movement_requested(direction: Vector2)
 signal character_follow_requested(enabled: bool)
+signal jump_requested
+signal dash_requested
 
 @export var right_mouse_pans := true
 @export var mouse_wheel_zooms := true
@@ -40,6 +42,23 @@ func _input(event: InputEvent) -> void:
 		character_follow_requested.emit(false)
 		pan_requested.emit(event.relative)
 		get_viewport().set_input_as_handled()
+	elif (
+		event is InputEventKey
+		and event.pressed
+		and not event.echo
+		and (
+			event.keycode == KEY_SHIFT
+			or event.physical_keycode == KEY_SHIFT
+		)
+	):
+		dash_requested.emit()
+	elif (
+		event is InputEventKey
+		and event.pressed
+		and not event.echo
+		and event.is_action(&"ui_accept")
+	):
+		jump_requested.emit()
 	elif (
 		event is InputEventKey
 		and event.pressed
