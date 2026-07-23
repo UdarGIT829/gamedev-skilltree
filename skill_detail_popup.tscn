@@ -1,0 +1,193 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://skill_detail_popup.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_popup"]
+bg_color = Color(0.055, 0.067, 0.086, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.61, 0.75, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_preview"]
+bg_color = Color(0.018, 0.024, 0.034, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.19, 0.29, 0.38, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_claim"]
+bg_color = Color(0.08, 0.12, 0.15, 1)
+border_width_left = 4
+border_color = Color(1, 0.75, 0.25, 1)
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+
+[node name="SkillDetailPopup" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_script")
+
+[node name="Overlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0.005, 0.008, 0.014, 0.78)
+
+[node name="Center" type="CenterContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Panel" type="PanelContainer" parent="Overlay/Center"]
+custom_minimum_size = Vector2(920, 570)
+layout_mode = 2
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StyleBox_popup")
+
+[node name="Margin" type="MarginContainer" parent="Overlay/Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Content" type="VBoxContainer" parent="Overlay/Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="Overlay/Center/Panel/Margin/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Overlay/Center/Panel/Margin/Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.86, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Skill title"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Overlay/Center/Panel/Margin/Content/Header"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 22
+text = "×"
+
+[node name="Body" type="HBoxContainer" parent="Overlay/Center/Panel/Margin/Content"]
+custom_minimum_size = Vector2(0, 480)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 22
+
+[node name="PreviewFrame" type="PanelContainer" parent="Overlay/Center/Panel/Margin/Content/Body"]
+clip_contents = true
+custom_minimum_size = Vector2(480, 480)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_preview")
+
+[node name="PreviewCenter" type="CenterContainer" parent="Overlay/Center/Panel/Margin/Content/Body/PreviewFrame"]
+layout_mode = 2
+
+[node name="PreviewHost" type="Control" parent="Overlay/Center/Panel/Margin/Content/Body/PreviewFrame/PreviewCenter"]
+custom_minimum_size = Vector2(460, 460)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="EmptyPreview" type="Label" parent="Overlay/Center/Panel/Margin/Content/Body/PreviewFrame/PreviewCenter/PreviewHost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.46, 0.54, 0.62, 1)
+theme_override_font_sizes/font_size = 16
+text = "No visual has been created for this skill yet."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Information" type="VBoxContainer" parent="Overlay/Center/Panel/Margin/Content/Body"]
+custom_minimum_size = Vector2(365, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="ClaimHeading" type="Label" parent="Overlay/Center/Panel/Margin/Content/Body/Information"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.75, 0.25, 1)
+theme_override_font_sizes/font_size = 13
+text = "CLAIM"
+
+[node name="Claim" type="Label" parent="Overlay/Center/Panel/Margin/Content/Body/Information"]
+custom_minimum_size = Vector2(0, 115)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.96, 0.98, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBox_claim")
+text = "Claim"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DescriptionHeading" type="Label" parent="Overlay/Center/Panel/Margin/Content/Body/Information"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49, 0.75, 0.87, 1)
+theme_override_font_sizes/font_size = 13
+text = "DESCRIPTION"
+
+[node name="DescriptionScroll" type="ScrollContainer" parent="Overlay/Center/Panel/Margin/Content/Body/Information"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Description" type="Label" parent="Overlay/Center/Panel/Margin/Content/Body/Information/DescriptionScroll"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.72, 0.78, 0.84, 1)
+theme_override_font_sizes/font_size = 16
+text = "Description"
+autowrap_mode = 2

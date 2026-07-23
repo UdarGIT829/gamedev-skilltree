@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://kl6uwijgno7o"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_yvcf3"]
+[ext_resource type="PackedScene" uid="uid://gdrfwmja543x" path="res://SkillVisuals/store_in_a_database_visual.tscn" id="2_visual"]
+
+[resource]
+script = ExtResource("1_yvcf3")
+id = &"storeinadatabase"
+display_name = "Store in a Database"
+description = "jgthdf"
+claim = "I can store and retrieve structured game information using a database or reusable custom data resource."
+visual_scene = ExtResource("2_visual")
+tier = 4
+prerequisite_ids = Array[StringName]([&"storeinadictionary"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

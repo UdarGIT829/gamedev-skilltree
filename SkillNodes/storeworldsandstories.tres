@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://caoqgh1gigtfy"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_k5wcl"]
+
+[resource]
+script = ExtResource("1_k5wcl")
+id = &"storeworldsandstories"
+display_name = "Store worlds and stories"
+description = ""
+claim = "I can store my world maps and stories in arrays, then retrieve the correct one at the appropriate time."
+tier = 3
+prerequisite_ids = Array[StringName]([&"waitforthemoment"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

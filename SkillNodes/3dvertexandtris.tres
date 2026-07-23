@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bfk2ulifee7be"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_k4vem"]
+
+[resource]
+script = ExtResource("1_k4vem")
+id = &"3dvertexandtris"
+display_name = "3D vertices and triangles"
+description = ""
+claim = "A 3D object is made of vertices positioned in space and the triangles that connect them."
+tier = 8
+prerequisite_ids = Array[StringName]([&"unrealisticlighting", &"pathing"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

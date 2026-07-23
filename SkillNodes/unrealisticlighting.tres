@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://d3lq2wynxfddm"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_eompt"]
+
+[resource]
+script = ExtResource("1_eompt")
+id = &"unrealisticlighting"
+display_name = "Unrealistic lighting"
+description = ""
+claim = "Lighting in a game should prioritize style, even when it does not behave like real light."
+tier = 7
+prerequisite_ids = Array[StringName]([&"colorquantization"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

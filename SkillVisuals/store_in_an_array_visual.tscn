@@ -1,0 +1,377 @@
+[gd_scene load_steps=8 format=3 uid="uid://x230ax23yb2i"]
+
+[ext_resource type="PackedScene" uid="uid://cdui21gjt8e0k" path="res://SkillVisuals/visual_template.tscn" id="1_template"]
+[ext_resource type="Script" uid="uid://c7js3ukamuneo" path="res://SkillVisuals/store_in_an_array_visual.gd" id="2_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o86je"]
+bg_color = Color(0.043, 0.055, 0.078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31, 0.4, 0.54, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stage"]
+bg_color = Color(0.065, 0.082, 0.115, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.22, 0.3, 0.42, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_answer"]
+bg_color = Color(0.025, 0.034, 0.052, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23, 0.57, 0.79, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot"]
+content_margin_left = 5.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.085, 0.105, 0.145, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_float"]
+content_margin_left = 7.0
+content_margin_top = 4.0
+content_margin_right = 7.0
+content_margin_bottom = 4.0
+bg_color = Color(0.15, 0.4, 0.58, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.83, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="StoreInAnArrayVisual" instance=ExtResource("1_template")]
+clip_contents = true
+mouse_filter = 2
+script = ExtResource("2_script")
+
+[node name="Background" type="Panel" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o86je")
+
+[node name="Margin" type="MarginContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = -10.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Content" type="VBoxContainer" parent="Margin" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Margin/Content" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54, 0.75, 0.98, 1)
+theme_override_font_sizes/font_size = 14
+text = "STORE IN AN ARRAY"
+horizontal_alignment = 1
+
+[node name="MainArea" type="HBoxContainer" parent="Margin/Content" index="1"]
+custom_minimum_size = Vector2(0, 215)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="StagePanel" type="PanelContainer" parent="Margin/Content/MainArea" index="0"]
+custom_minimum_size = Vector2(187, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_stage")
+
+[node name="Stage" type="Control" parent="Margin/Content/MainArea/StagePanel" index="0"]
+custom_minimum_size = Vector2(184, 207)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="QuestionStage" type="Control" parent="Margin/Content/MainArea/StagePanel/Stage" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuestionCount" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/QuestionStage" index="0"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 176.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.45, 0.68, 0.9, 1)
+theme_override_font_sizes/font_size = 10
+text = "QUESTION 1 OF 3"
+
+[node name="QuestionLabel" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/QuestionStage" index="1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 33.0
+offset_right = 176.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0.92, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "Who explores the cave?"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnswerPrompt" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/QuestionStage" index="2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 110.0
+offset_right = 176.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0.48, 0.57, 0.7, 1)
+theme_override_font_sizes/font_size = 10
+text = "ANSWER"
+
+[node name="AnswerBox" type="PanelContainer" parent="Margin/Content/MainArea/StagePanel/Stage/QuestionStage" index="3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 133.0
+offset_right = 176.0
+offset_bottom = 176.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_answer")
+
+[node name="AnswerText" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/QuestionStage/AnswerBox" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="StoryStage" type="Control" parent="Margin/Content/MainArea/StagePanel/Stage" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StoryTitle" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/StoryStage" index="0"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 176.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.45, 0.68, 0.9, 1)
+theme_override_font_sizes/font_size = 11
+text = "STORY TEMPLATE"
+
+[node name="StoryHint" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/StoryStage" index="1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 35.0
+offset_right = 176.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.58, 0.65, 0.76, 1)
+theme_override_font_sizes/font_size = 10
+text = "Fill each numbered blank:"
+
+[node name="StoryTarget0" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/StoryStage" index="2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 66.0
+offset_right = 80.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.45, 0.5, 0.59, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot")
+text = "[0]  _____"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Carried" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/StoryStage" index="3"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 66.0
+offset_right = 176.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.84, 0.88, 0.94, 1)
+theme_override_font_sizes/font_size = 12
+text = "carried"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StoryTarget1" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/StoryStage" index="4"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 103.0
+offset_right = 176.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0.45, 0.5, 0.59, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot")
+text = "[1]  _____"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Into" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/StoryStage" index="5"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 147.0
+offset_right = 43.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(0.84, 0.88, 0.94, 1)
+theme_override_font_sizes/font_size = 12
+text = "into"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StoryTarget2" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/StoryStage" index="6"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 47.0
+offset_top = 147.0
+offset_right = 174.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(0.45, 0.5, 0.59, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot")
+text = "[2]  _____"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Period" type="Label" parent="Margin/Content/MainArea/StagePanel/Stage/StoryStage" index="7"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 147.0
+offset_right = 183.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(0.84, 0.88, 0.94, 1)
+theme_override_font_sizes/font_size = 12
+text = "."
+vertical_alignment = 1
+
+[node name="ArrayPanel" type="PanelContainer" parent="Margin/Content/MainArea" index="1"]
+clip_contents = true
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stage")
+
+[node name="ArrayContent" type="VBoxContainer" parent="Margin/Content/MainArea/ArrayPanel" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="ArrayTitle" type="Label" parent="Margin/Content/MainArea/ArrayPanel/ArrayContent" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54, 0.75, 0.98, 1)
+theme_override_font_sizes/font_size = 11
+text = "ARRAY"
+horizontal_alignment = 1
+
+[node name="ArraySlot0" type="Label" parent="Margin/Content/MainArea/ArrayPanel/ArrayContent" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.5, 0.59, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot")
+text = "[0]  —"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ArraySlot1" type="Label" parent="Margin/Content/MainArea/ArrayPanel/ArrayContent" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.5, 0.59, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot")
+text = "[1]  —"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ArraySlot2" type="Label" parent="Margin/Content/MainArea/ArrayPanel/ArrayContent" index="3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.5, 0.59, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot")
+text = "[2]  —"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="StatusLabel" type="Label" parent="Margin/Content" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.72, 0.82, 1)
+theme_override_font_sizes/font_size = 11
+text = "Collect answers into the array"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FloatingAnswer" type="Label" parent="." index="2"]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.96, 0.98, 1, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_float")
+text = "answer"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationTimer" type="Timer" parent="." index="3"]
+unique_name_in_owner = true
+one_shot = true

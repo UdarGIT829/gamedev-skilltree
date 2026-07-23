@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://c400gmp0ewtcr"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_osqu4"]
+[ext_resource type="PackedScene" uid="uid://0ui8bd10vve8" path="res://SkillVisuals/store_in_a_dictionary_visual.tscn" id="2_visual"]
+
+[resource]
+script = ExtResource("1_osqu4")
+id = &"storeinadictionary"
+display_name = "Store in a Dictionary"
+description = "hdgdsf"
+claim = "I can store and retrieve game objects using a dictionary."
+visual_scene = ExtResource("2_visual")
+tier = 3
+prerequisite_ids = Array[StringName]([&"storeinanarray"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

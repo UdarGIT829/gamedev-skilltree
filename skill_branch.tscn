@@ -1,0 +1,412 @@
+[gd_scene load_steps=37 format=3 uid="uid://btqr3ygeorjwj"]
+
+[ext_resource type="Script" uid="uid://cw0qc7nmk3u1j" path="res://skill_branch-script.gd" id="1_rsxem"]
+[ext_resource type="Script" uid="uid://deqtw4itoq2na" path="res://Resources/SkillPathData.gd" id="2_1yvbt"]
+[ext_resource type="Resource" uid="uid://vuad781jkchw" path="res://SkillBranches/visualsandphysics.tres" id="2_vthio"]
+[ext_resource type="Resource" uid="uid://cnyei7qkcrbws" path="res://SkillNodes/multipleimages.tres" id="5_40vc0"]
+[ext_resource type="Script" uid="uid://d1t35yddhpjm6" path="res://Components/branch_area_2d_component.gd" id="5_area"]
+[ext_resource type="Resource" uid="uid://cwdax4s840fij" path="res://SkillNodes/velocityandacceleration.tres" id="6_jbaa2"]
+[ext_resource type="Resource" uid="uid://diyha7fobaplx" path="res://SkillNodes/complexcollisionboxes.tres" id="7_uog8v"]
+[ext_resource type="Resource" uid="uid://bbipnmkiwu3lu" path="res://SkillNodes/dithering.tres" id="8_0jlhx"]
+[ext_resource type="Script" uid="uid://cmln26b5bwpl3" path="res://Components/skill_branch_builder.gd" id="8_builder"]
+[ext_resource type="PackedScene" uid="uid://2r6exhxkixj7" path="res://skill_node.tscn" id="9_8tcd0"]
+[ext_resource type="Resource" uid="uid://bkpfxitj6u7h4" path="res://SkillNodes/colorpalettes.tres" id="9_lh1ij"]
+[ext_resource type="Resource" uid="uid://bi7p3ldn0a65r" path="res://SkillNodes/colorquantization.tres" id="10_s3mw7"]
+[ext_resource type="Resource" uid="uid://d3lq2wynxfddm" path="res://SkillNodes/unrealisticlighting.tres" id="11_gg2hw"]
+[ext_resource type="Script" uid="uid://b5obup7w0nrex" path="res://Resources/SkillProgress.gd" id="11_hekom"]
+[ext_resource type="PackedScene" uid="uid://b2hi1unqwdxri" path="res://skill_path.tscn" id="11_vthio"]
+[ext_resource type="Resource" uid="uid://bfk2ulifee7be" path="res://SkillNodes/3dvertexandtris.tres" id="12_xf2ji"]
+[ext_resource type="Resource" uid="uid://bhqgpida01uul" path="res://SkillNodes/viewportspawning.tres" id="13_n1kxt"]
+[ext_resource type="Resource" uid="uid://bgjom5eds4rck" path="res://SkillNodes/placementrules.tres" id="15_40vc0"]
+[ext_resource type="Resource" uid="uid://vkqbttrpc0ed" path="res://SkillNodes/pathing.tres" id="16_jbaa2"]
+[ext_resource type="Resource" uid="uid://cxggrm1o8cqsy" path="res://SkillNodes/fragmentshader.tres" id="17_0jlhx"]
+[ext_resource type="Resource" uid="uid://4txdo578r67o" path="res://SkillNodes/vertexshader.tres" id="18_lh1ij"]
+
+[sub_resource type="Resource" id="Resource_d6fe4"]
+script = ExtResource("11_hekom")
+statuses = Dictionary[StringName, int]({})
+metadata/_custom_type_script = "uid://b5obup7w0nrex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_branch_area"]
+resource_local_to_scene = true
+size = Vector2(1000, 3200)
+
+[sub_resource type="Resource" id="Resource_uog8v"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("5_40vc0")
+destination = ExtResource("6_jbaa2")
+
+[sub_resource type="Resource" id="Resource_0jlhx"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("6_jbaa2")
+destination = ExtResource("7_uog8v")
+
+[sub_resource type="Resource" id="Resource_lh1ij"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("7_uog8v")
+destination = ExtResource("8_0jlhx")
+
+[sub_resource type="Resource" id="Resource_s3mw7"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("8_0jlhx")
+destination = ExtResource("9_lh1ij")
+
+[sub_resource type="Resource" id="Resource_gg2hw"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("9_lh1ij")
+destination = ExtResource("10_s3mw7")
+
+[sub_resource type="Resource" id="Resource_xf2ji"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("10_s3mw7")
+destination = ExtResource("11_gg2hw")
+
+[sub_resource type="Resource" id="Resource_n1kxt"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("11_gg2hw")
+destination = ExtResource("12_xf2ji")
+
+[sub_resource type="Resource" id="Resource_wwonm"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("7_uog8v")
+destination = ExtResource("13_n1kxt")
+
+[sub_resource type="Resource" id="Resource_v2p7d"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("13_n1kxt")
+destination = ExtResource("15_40vc0")
+
+[sub_resource type="Resource" id="Resource_awigg"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("16_jbaa2")
+destination = ExtResource("12_xf2ji")
+
+[sub_resource type="Resource" id="Resource_6x4vl"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("15_40vc0")
+destination = ExtResource("16_jbaa2")
+
+[sub_resource type="Resource" id="Resource_ghvou"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("12_xf2ji")
+destination = ExtResource("17_0jlhx")
+
+[sub_resource type="Resource" id="Resource_2jp30"]
+script = ExtResource("2_1yvbt")
+source = ExtResource("12_xf2ji")
+destination = ExtResource("18_lh1ij")
+
+[node name="Skill Branch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rsxem")
+data = ExtResource("2_vthio")
+progress = SubResource("Resource_d6fe4")
+claims = Array[String](["One game object can use multiple images depending on what it is doing or how it should look.
+", "Movement buttons create velocity in a direction. Gravity creates acceleration toward Earth. A downward-pointing fan and gravity can therefore produce the same movement effect.", "A sprite is pixels drawn inside a square, but the object's collision or overlap shape does not need to be that square.", "I can arrange pixels of different colors so they appear to blend into another color or shade.", "I can deliberately control the colors in a game so the artwork feels consistent and stylish.", "I can reduce an image to a chosen palette by replacing similar colors with selected colors.", "Lighting in a game should prioritize style, even when it does not behave like real light.", "A 3D object is made of vertices positioned in space and the triangles that connect them.", "I can create and remove objects based on what part of the world the player can currently see.", "When the game creates objects automatically, it still needs rules for where those objects are allowed to appear.", "I should fully understand where a character can and cannot move based on its code WITHOUT running the game. ", "The color of the triangles between 3D vertices can be calculated with a fragment shader.", "A vertex shader can change where 3D vertices appear to be without automatically changing the object's physics."])
+claim_skill_ids = Array[StringName]([&"multipleimages", &"velocityandacceleration", &"complexcollisionboxes", &"dithering", &"colorpalettes", &"colorquantization", &"unrealisticlighting", &"3dvertexandtris", &"viewportspawning", &"placementrules", &"pathing", &"fragmentshader", &"vertexshader"])
+
+[node name="multipleimages" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 7152.0
+offset_bottom = 4128.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("5_40vc0")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"multipleimages"
+
+[node name="velocityandacceleration" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.5299e-05
+offset_top = 350.0
+offset_right = 7152.0
+offset_bottom = 4478.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("6_jbaa2")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"velocityandacceleration"
+
+[node name="complexcollisionboxes" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0598e-05
+offset_top = 700.0
+offset_right = 7152.0
+offset_bottom = 4828.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("7_uog8v")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"complexcollisionboxes"
+
+[node name="dithering" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = 1050.0
+offset_right = 6852.0
+offset_bottom = 5178.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("8_0jlhx")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"dithering"
+
+[node name="colorpalettes" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = 1400.0
+offset_right = 6852.0
+offset_bottom = 5528.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("9_lh1ij")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"colorpalettes"
+
+[node name="colorquantization" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = 1750.0
+offset_right = 6852.0
+offset_bottom = 5878.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("10_s3mw7")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"colorquantization"
+
+[node name="unrealisticlighting" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = 2100.0
+offset_right = 6852.0
+offset_bottom = 6228.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("11_gg2hw")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"unrealisticlighting"
+
+[node name="3dvertexandtris" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.000107093
+offset_top = 2450.0
+offset_right = 7152.0
+offset_bottom = 6578.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("12_xf2ji")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"3dvertexandtris"
+
+[node name="viewportspawning" parent="." instance=ExtResource("9_8tcd0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 1400.0
+offset_right = 7452.0
+offset_bottom = 5528.0
+grow_horizontal = 2
+grow_vertical = 2
+data = ExtResource("13_n1kxt")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"viewportspawning"
+
+[node name="placementrules" parent="." instance=ExtResource("9_8tcd0")]
+offset_left = 300.0
+offset_top = 1750.0
+offset_right = 300.0
+offset_bottom = 1750.0
+data = ExtResource("15_40vc0")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"placementrules"
+
+[node name="pathing" parent="." instance=ExtResource("9_8tcd0")]
+offset_left = 300.0
+offset_top = 2100.0
+offset_right = 300.0
+offset_bottom = 2100.0
+data = ExtResource("16_jbaa2")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"pathing"
+
+[node name="fragmentshader" parent="." instance=ExtResource("9_8tcd0")]
+offset_left = -300.0
+offset_top = 2800.0
+offset_right = -300.0
+offset_bottom = 2800.0
+data = ExtResource("17_0jlhx")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"fragmentshader"
+
+[node name="vertexshader" parent="." instance=ExtResource("9_8tcd0")]
+offset_left = 300.0
+offset_top = 2800.0
+offset_right = 300.0
+offset_bottom = 2800.0
+data = ExtResource("18_lh1ij")
+progress = SubResource("Resource_d6fe4")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"node"
+metadata/skill_id = &"vertexshader"
+
+[node name="builder_component" type="Node" parent="."]
+script = ExtResource("8_builder")
+tier_spacing = 350.0
+sibling_spacing = 600.0
+spacing = Vector2(0, 328.43)
+
+[node name="area_2d_component" type="Area2D" parent="."]
+script = ExtResource("5_area")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_2d_component"]
+position = Vector2(120, 1520)
+shape = SubResource("RectangleShape2D_branch_area")
+
+[node name="multipleimages_to_velocityandacceleration" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_uog8v")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"multipleimages->velocityandacceleration"
+
+[node name="velocityandacceleration_to_complexcollisionboxes" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_0jlhx")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"velocityandacceleration->complexcollisionboxes"
+
+[node name="complexcollisionboxes_to_dithering" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_lh1ij")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"complexcollisionboxes->dithering"
+
+[node name="dithering_to_colorpalettes" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_s3mw7")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"dithering->colorpalettes"
+
+[node name="colorpalettes_to_colorquantization" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_gg2hw")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"colorpalettes->colorquantization"
+
+[node name="colorquantization_to_unrealisticlighting" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_xf2ji")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"colorquantization->unrealisticlighting"
+
+[node name="unrealisticlighting_to_3dvertexandtris" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_n1kxt")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"unrealisticlighting->3dvertexandtris"
+
+[node name="complexcollisionboxes_to_viewportspawning" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_wwonm")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"complexcollisionboxes->viewportspawning"
+
+[node name="viewportspawning_to_placementrules" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_v2p7d")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"viewportspawning->placementrules"
+
+[node name="pathing_to_3dvertexandtris" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_awigg")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"pathing->3dvertexandtris"
+
+[node name="placementrules_to_pathing" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_6x4vl")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"placementrules->pathing"
+
+[node name="3dvertexandtris_to_fragmentshader" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_ghvou")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"3dvertexandtris->fragmentshader"
+
+[node name="3dvertexandtris_to_vertexshader" parent="." instance=ExtResource("11_vthio")]
+layout_mode = 1
+data = SubResource("Resource_2jp30")
+metadata/skill_branch_builder_generated = true
+metadata/generated_kind = &"path"
+metadata/path_id = &"3dvertexandtris->vertexshader"

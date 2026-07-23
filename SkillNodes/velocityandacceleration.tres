@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://cwdax4s840fij"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_jtqg2"]
+
+[resource]
+script = ExtResource("1_jtqg2")
+id = &"velocityandacceleration"
+display_name = "Velocity and Acceleration"
+description = "fhsgs"
+claim = "Movement buttons create velocity in a direction. Gravity creates acceleration toward Earth. A downward-pointing fan and gravity can therefore produce the same movement effect."
+tier = 2
+prerequisite_ids = Array[StringName]([&"multipleimages"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

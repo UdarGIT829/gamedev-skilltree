@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bkpfxitj6u7h4"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_8f65f"]
+
+[resource]
+script = ExtResource("1_8f65f")
+id = &"colorpalettes"
+display_name = "Color palettes"
+description = ""
+claim = "I can deliberately control the colors in a game so the artwork feels consistent and stylish."
+tier = 5
+prerequisite_ids = Array[StringName]([&"dithering"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

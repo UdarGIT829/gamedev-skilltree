@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://2r6exhxkixj7"]
+
+[ext_resource type="Script" uid="uid://l7ir2y0h5sa5" path="res://skill_node-script.gd" id="1_m8cli"]
+[ext_resource type="Resource" uid="uid://cs2js87e7j0p1" path="res://SkillNodes/storeinanarray.tres" id="2_fbu8u"]
+[ext_resource type="Script" uid="uid://b5obup7w0nrex" path="res://Resources/SkillProgress.gd" id="3_0isc3"]
+
+[sub_resource type="Resource" id="Resource_1us33"]
+script = ExtResource("3_0isc3")
+statuses = Dictionary[StringName, int]({})
+metadata/_custom_type_script = "uid://b5obup7w0nrex"
+
+[node name="Skill Node" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -120.0
+offset_top = -120.0
+offset_right = -120.0
+offset_bottom = -120.0
+script = ExtResource("1_m8cli")
+data = ExtResource("2_fbu8u")
+progress = SubResource("Resource_1us33")
+
+[node name="BillboardVisuals" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 240.0
+pivot_offset = Vector2(120, 120)
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="BillboardVisuals"]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 240.0
+mouse_default_cursor_shape = 2
+
+[node name="ColorRect" type="ColorRect" parent="BillboardVisuals"]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 240.0
+mouse_filter = 2
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="Unlocked Button" type="TextureButton" parent="BillboardVisuals"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+offset_left = 177.0
+offset_top = 175.0
+offset_right = 237.0
+offset_bottom = 235.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BillboardVisuals"]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 240.0
+mouse_filter = 2
+
+[node name="Skill Name Label" type="Label" parent="BillboardVisuals/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+text = "Store in an array"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BillboardVisuals/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Unlock Status Label" type="Label" parent="BillboardVisuals/VBoxContainer"]
+layout_mode = 2
+text = "Locked"
+horizontal_alignment = 1
+
+[node name="DisabledSkillVisual" type="Control" parent="BillboardVisuals"]
+visible = false
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 240.0
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="BillboardVisuals/DisabledSkillVisual"]
+layout_mode = 0
+offset_left = -7.99999
+offset_top = 237.0
+offset_right = 345.0
+offset_bottom = 259.0
+rotation = -0.785398
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BillboardVisuals/DisabledSkillVisual"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -14.0
+offset_right = 360.0
+offset_bottom = 8.0
+rotation = 0.785398
+color = Color(1, 0, 0, 1)
+
+[node name="NodeTop" type="Marker2D" parent="."]
+position = Vector2(120, 0)
+metadata/skill_node_base_marker_position_v2 = Vector2(120, 0)
+
+[node name="NodeLeft" type="Marker2D" parent="."]
+position = Vector2(0, 120)
+metadata/skill_node_base_marker_position_v2 = Vector2(0, 120)
+
+[node name="NodeRight" type="Marker2D" parent="."]
+position = Vector2(240, 120)
+metadata/skill_node_base_marker_position_v2 = Vector2(240, 120)
+
+[node name="NodeBottom" type="Marker2D" parent="."]
+position = Vector2(120, 240)
+metadata/skill_node_base_marker_position_v2 = Vector2(120, 240)
+
+[node name="NodeBottomR" type="Marker2D" parent="."]
+position = Vector2(240, 240)
+metadata/skill_node_base_marker_position_v2 = Vector2(240, 240)
+
+[node name="NodeBottomL" type="Marker2D" parent="."]
+position = Vector2(0, 240)
+metadata/skill_node_base_marker_position_v2 = Vector2(0, 240)
+
+[connection signal="pressed" from="BillboardVisuals/Unlocked Button" to="." method="change_skill_unlocked_icon"]

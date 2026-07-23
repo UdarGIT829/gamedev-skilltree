@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://cs2js87e7j0p1"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_ip575"]
+[ext_resource type="PackedScene" uid="uid://x230ax23yb2i" path="res://SkillVisuals/store_in_an_array_visual.tscn" id="2_visual"]
+
+[resource]
+script = ExtResource("1_ip575")
+id = &"storeinanarray"
+display_name = "Store in an array"
+description = "dsfsdgd"
+claim = "I can store and retrieve game objects with an array."
+visual_scene = ExtResource("2_visual")
+tier = 2
+prerequisite_ids = Array[StringName]([&"createwithloops"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

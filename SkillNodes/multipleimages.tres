@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://cnyei7qkcrbws"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_2jqh2"]
+
+[resource]
+script = ExtResource("1_2jqh2")
+id = &"multipleimages"
+display_name = "One object, multiple images"
+description = ""
+claim = "One game object can use multiple images depending on what it is doing or how it should look.
+"
+tier = 1
+prerequisite_ids = Array[StringName]([])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

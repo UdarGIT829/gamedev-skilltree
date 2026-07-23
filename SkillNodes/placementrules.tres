@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bgjom5eds4rck"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_jw7qs"]
+
+[resource]
+script = ExtResource("1_jw7qs")
+id = &"placementrules"
+display_name = "Placement Rules"
+description = ""
+claim = "When the game creates objects automatically, it still needs rules for where those objects are allowed to appear."
+tier = 6
+prerequisite_ids = Array[StringName]([&"viewportspawning"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

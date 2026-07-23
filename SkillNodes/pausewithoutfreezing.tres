@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://dswyx2qacjis0"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_frudx"]
+
+[resource]
+script = ExtResource("1_frudx")
+id = &"pausewithoutfreezing"
+display_name = "Pause without freezing everything"
+description = ""
+claim = "I should be able to pause the game without freezing the entire program. Variables can control who is allowed to move during preplanned moments such as cutscenes."
+tier = 4
+prerequisite_ids = Array[StringName]([&"storeworldsandstories"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

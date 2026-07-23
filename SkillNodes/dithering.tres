@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bbipnmkiwu3lu"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_1s472"]
+
+[resource]
+script = ExtResource("1_1s472")
+id = &"dithering"
+display_name = "Dithering"
+description = "hfgsf"
+claim = "I can arrange pixels of different colors so they appear to blend into another color or shade."
+tier = 4
+prerequisite_ids = Array[StringName]([&"complexcollisionboxes"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

@@ -1,0 +1,763 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnarre6ey5ltl"]
+
+[ext_resource type="Texture2D" uid="uid://bbcxt3vfdxg4l" path="res://Resources/shefguy.png" id="2_wk1v2"]
+[ext_resource type="Texture2D" uid="uid://u8eylh5jlgdq" path="res://Resources/memeguy.png" id="3_bh1a7"]
+
+[node name="RestaurantWorld" type="Control"]
+custom_minimum_size = Vector2(700, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 700.0
+offset_bottom = 300.0
+mouse_filter = 2
+
+[node name="chef" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 380.0
+offset_top = 48.0
+offset_right = 475.0
+offset_bottom = 161.0
+texture = ExtResource("2_wk1v2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="customer" type="TextureRect" parent="."]
+z_index = 3
+layout_mode = 0
+offset_left = 35.0
+offset_top = 102.0
+offset_right = 130.0
+offset_bottom = 201.0
+texture = ExtResource("3_bh1a7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RestaurantInterior" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Wall" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.94, 0.86, 0.7, 1)
+
+[node name="CeilingTrim" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.31, 0.19, 0.16, 1)
+
+[node name="Backsplash" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 700.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.83, 0.9, 0.83, 1)
+
+[node name="TileLineHorizontal1" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 700.0
+offset_bottom = 79.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="TileLineHorizontal2" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_top = 114.0
+offset_right = 700.0
+offset_bottom = 117.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="TileLineVertical1" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 39.0
+offset_right = 53.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="TileLineVertical2" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 39.0
+offset_right = 104.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="TileLineVertical3" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 39.0
+offset_right = 155.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="TileLineVertical4" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 39.0
+offset_right = 206.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="TileLineVertical5" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 39.0
+offset_right = 257.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="SignShadow" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 11.0
+offset_right = 296.0
+offset_bottom = 43.0
+mouse_filter = 2
+color = Color(0.28, 0.15, 0.12, 1)
+
+[node name="RestaurantSign" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 8.0
+offset_right = 291.0
+offset_bottom = 39.0
+mouse_filter = 2
+color = Color(0.84, 0.31, 0.2, 1)
+
+[node name="RestaurantName" type="Label" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 9.0
+offset_right = 286.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 0.94, 0.75, 1)
+theme_override_font_sizes/font_size = 15
+text = "THE RECIPE KITCHEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KitchenPass" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 48.0
+offset_right = 509.0
+offset_bottom = 145.0
+mouse_filter = 2
+color = Color(0.12, 0.16, 0.16, 1)
+
+[node name="PassFrameTop" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 44.0
+offset_right = 513.0
+offset_bottom = 50.0
+mouse_filter = 2
+color = Color(0.35, 0.23, 0.18, 1)
+
+[node name="PassFrameLeft" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 44.0
+offset_right = 379.0
+offset_bottom = 149.0
+mouse_filter = 2
+color = Color(0.35, 0.23, 0.18, 1)
+
+[node name="PassFrameRight" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 44.0
+offset_right = 513.0
+offset_bottom = 149.0
+mouse_filter = 2
+color = Color(0.35, 0.23, 0.18, 1)
+
+[node name="PassShelfShadow" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 141.0
+offset_right = 519.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.24, 0.13, 0.11, 1)
+
+[node name="PassShelf" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 137.0
+offset_right = 521.0
+offset_bottom = 147.0
+mouse_filter = 2
+color = Color(0.72, 0.42, 0.23, 1)
+
+[node name="MenuBoard" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 51.0
+offset_right = 291.0
+offset_bottom = 132.0
+mouse_filter = 2
+color = Color(0.1, 0.25, 0.2, 1)
+
+[node name="MenuFrameTop" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 46.0
+offset_right = 296.0
+offset_bottom = 52.0
+mouse_filter = 2
+color = Color(0.4, 0.24, 0.16, 1)
+
+[node name="MenuFrameLeft" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 46.0
+offset_right = 211.0
+offset_bottom = 137.0
+mouse_filter = 2
+color = Color(0.4, 0.24, 0.16, 1)
+
+[node name="MenuFrameRight" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 46.0
+offset_right = 296.0
+offset_bottom = 137.0
+mouse_filter = 2
+color = Color(0.4, 0.24, 0.16, 1)
+
+[node name="MenuFrameBottom" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 131.0
+offset_right = 296.0
+offset_bottom = 137.0
+mouse_filter = 2
+color = Color(0.4, 0.24, 0.16, 1)
+
+[node name="MenuTitle" type="Label" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 55.0
+offset_right = 286.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.95, 0.87, 0.58, 1)
+theme_override_font_sizes/font_size = 11
+text = "TODAY'S MENU"
+horizontal_alignment = 1
+
+[node name="MenuLine1" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 83.0
+offset_right = 282.0
+offset_bottom = 87.0
+mouse_filter = 2
+color = Color(0.71, 0.81, 0.66, 1)
+
+[node name="MenuLine2" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 96.0
+offset_right = 274.0
+offset_bottom = 100.0
+mouse_filter = 2
+color = Color(0.71, 0.81, 0.66, 1)
+
+[node name="MenuLine3" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 109.0
+offset_right = 279.0
+offset_bottom = 113.0
+mouse_filter = 2
+color = Color(0.71, 0.81, 0.66, 1)
+
+[node name="Floor" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_top = 154.0
+offset_right = 700.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.55, 0.49, 0.4, 1)
+
+[node name="FloorLineHorizontal" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_top = 227.0
+offset_right = 700.0
+offset_bottom = 231.0
+mouse_filter = 2
+color = Color(0.43, 0.38, 0.32, 1)
+
+[node name="FloorLineVertical1" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 154.0
+offset_right = 78.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.43, 0.38, 0.32, 1)
+
+[node name="FloorLineVertical2" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 154.0
+offset_right = 153.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.43, 0.38, 0.32, 1)
+
+[node name="FloorLineVertical3" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 154.0
+offset_right = 228.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.43, 0.38, 0.32, 1)
+
+[node name="ServiceCounterBase" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 169.0
+offset_right = 338.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.47, 0.17, 0.14, 1)
+
+[node name="CounterPanel1" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 181.0
+offset_right = 157.0
+offset_bottom = 290.0
+mouse_filter = 2
+color = Color(0.6, 0.24, 0.17, 1)
+
+[node name="CounterPanel2" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 181.0
+offset_right = 226.0
+offset_bottom = 290.0
+mouse_filter = 2
+color = Color(0.6, 0.24, 0.17, 1)
+
+[node name="CounterPanel3" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 181.0
+offset_right = 327.0
+offset_bottom = 290.0
+mouse_filter = 2
+color = Color(0.6, 0.24, 0.17, 1)
+
+[node name="CounterShadow" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 158.0
+offset_right = 338.0
+offset_bottom = 174.0
+mouse_filter = 2
+color = Color(0.25, 0.12, 0.1, 1)
+
+[node name="CounterTop" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 151.0
+offset_right = 338.0
+offset_bottom = 164.0
+mouse_filter = 2
+color = Color(0.79, 0.49, 0.24, 1)
+
+[node name="Stove" type="Control" parent="RestaurantInterior"]
+anchors_preset = 0
+offset_left = 379.0
+offset_top = 113.0
+offset_right = 440.0
+offset_bottom = 159.0
+mouse_filter = 2
+
+[node name="StoveBody" type="ColorRect" parent="RestaurantInterior/Stove"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 61.0
+offset_bottom = 46.0
+mouse_filter = 2
+color = Color(0.27, 0.31, 0.31, 1)
+
+[node name="BurnerLeft" type="ColorRect" parent="RestaurantInterior/Stove"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 17.0
+offset_right = 27.0
+offset_bottom = 23.0
+mouse_filter = 2
+color = Color(0.08, 0.1, 0.1, 1)
+
+[node name="BurnerRight" type="ColorRect" parent="RestaurantInterior/Stove"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 17.0
+offset_right = 55.0
+offset_bottom = 23.0
+mouse_filter = 2
+color = Color(0.08, 0.1, 0.1, 1)
+
+[node name="CookingPot" type="Control" parent="RestaurantInterior/Stove"]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 52.0
+offset_bottom = 25.0
+mouse_filter = 2
+
+[node name="PotBody" type="ColorRect" parent="RestaurantInterior/Stove/CookingPot"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 38.0
+offset_bottom = 23.0
+mouse_filter = 2
+color = Color(0.38, 0.47, 0.49, 1)
+
+[node name="PotLip" type="ColorRect" parent="RestaurantInterior/Stove/CookingPot"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 42.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.67, 0.75, 0.75, 1)
+
+[node name="PotHandleLeft" type="ColorRect" parent="RestaurantInterior/Stove/CookingPot"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 9.0
+offset_right = 5.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.24, 0.3, 0.31, 1)
+
+[node name="PotHandleRight" type="ColorRect" parent="RestaurantInterior/Stove/CookingPot"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 9.0
+offset_right = 47.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.24, 0.3, 0.31, 1)
+
+[node name="KitchenTimer" type="Control" parent="RestaurantInterior"]
+anchors_preset = 0
+offset_left = 615.0
+offset_top = 72.0
+offset_right = 675.0
+offset_bottom = 108.0
+mouse_filter = 2
+
+[node name="TimerBody" type="ColorRect" parent="RestaurantInterior/KitchenTimer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.22, 0.27, 0.27, 1)
+
+[node name="TimerDisplay" type="Label" parent="RestaurantInterior/KitchenTimer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.69, 1, 0.69, 1)
+theme_override_font_sizes/font_size = 12
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RecipeBox" type="Control" parent="RestaurantInterior"]
+anchors_preset = 0
+offset_left = 545.0
+offset_top = 113.0
+offset_right = 589.0
+offset_bottom = 153.0
+mouse_filter = 2
+
+[node name="BoxBack" type="ColorRect" parent="RestaurantInterior/RecipeBox"]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 44.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.39, 0.2, 0.13, 1)
+
+[node name="RecipeCardSlot0" type="ColorRect" parent="RestaurantInterior/RecipeBox"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 17.0
+offset_bottom = 29.0
+mouse_filter = 2
+color = Color(0.95, 0.78, 0.39, 1)
+
+[node name="RecipeCardSlot1" type="ColorRect" parent="RestaurantInterior/RecipeBox"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 29.0
+offset_bottom = 29.0
+mouse_filter = 2
+color = Color(0.59, 0.78, 0.52, 1)
+
+[node name="RecipeCardSlot2" type="ColorRect" parent="RestaurantInterior/RecipeBox"]
+layout_mode = 0
+offset_left = 27.0
+offset_right = 40.0
+offset_bottom = 29.0
+mouse_filter = 2
+color = Color(0.86, 0.4, 0.28, 1)
+
+[node name="BoxFront" type="ColorRect" parent="RestaurantInterior/RecipeBox"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 44.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.62, 0.34, 0.18, 1)
+
+[node name="BoxLabel" type="Label" parent="RestaurantInterior/RecipeBox"]
+layout_mode = 0
+offset_top = 22.0
+offset_right = 44.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(1, 0.87, 0.63, 1)
+theme_override_font_sizes/font_size = 8
+text = "RECIPES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Register" type="Control" parent="RestaurantInterior"]
+anchors_preset = 0
+offset_left = 243.0
+offset_top = 113.0
+offset_right = 292.0
+offset_bottom = 153.0
+mouse_filter = 2
+
+[node name="RegisterBody" type="ColorRect" parent="RestaurantInterior/Register"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 13.0
+offset_right = 47.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.25, 0.24, 0.22, 1)
+
+[node name="RegisterScreen" type="ColorRect" parent="RestaurantInterior/Register"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 43.0
+offset_bottom = 22.0
+rotation = 0.0872665
+mouse_filter = 2
+color = Color(0.39, 0.4, 0.34, 1)
+
+[node name="PriceDisplay" type="Label" parent="RestaurantInterior/Register"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 41.0
+offset_bottom = 19.0
+rotation = 0.0872665
+theme_override_colors/font_color = Color(0.93, 0.86, 0.48, 1)
+theme_override_font_sizes/font_size = 9
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DividerShadowLeft" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 332.0
+offset_right = 340.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.25, 0.14, 0.12, 1)
+
+[node name="RoomDivider" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 340.0
+offset_right = 362.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.72, 0.55, 0.38, 1)
+
+[node name="DividerHighlight" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 340.0
+offset_right = 345.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.88, 0.72, 0.52, 1)
+
+[node name="KitchenCounterBase" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 169.0
+offset_right = 700.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.27, 0.38, 0.35, 1)
+
+[node name="KitchenCabinet1" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 181.0
+offset_right = 468.0
+offset_bottom = 290.0
+mouse_filter = 2
+color = Color(0.35, 0.5, 0.45, 1)
+
+[node name="KitchenCabinet2" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 181.0
+offset_right = 574.0
+offset_bottom = 290.0
+mouse_filter = 2
+color = Color(0.35, 0.5, 0.45, 1)
+
+[node name="KitchenCabinet3" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 181.0
+offset_right = 688.0
+offset_bottom = 290.0
+mouse_filter = 2
+color = Color(0.35, 0.5, 0.45, 1)
+
+[node name="KitchenCounterShadow" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 158.0
+offset_right = 700.0
+offset_bottom = 174.0
+mouse_filter = 2
+color = Color(0.14, 0.2, 0.18, 1)
+
+[node name="KitchenCounterTop" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 151.0
+offset_right = 700.0
+offset_bottom = 164.0
+mouse_filter = 2
+color = Color(0.62, 0.69, 0.61, 1)
+
+[node name="KitchenSignShadow" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 11.0
+offset_right = 684.0
+offset_bottom = 43.0
+mouse_filter = 2
+color = Color(0.15, 0.25, 0.22, 1)
+
+[node name="KitchenSign" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 8.0
+offset_right = 679.0
+offset_bottom = 39.0
+mouse_filter = 2
+color = Color(0.34, 0.55, 0.45, 1)
+
+[node name="KitchenSignText" type="Label" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 9.0
+offset_right = 674.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.94, 1, 0.86, 1)
+theme_override_font_sizes/font_size = 15
+text = "KITCHEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KitchenTileLine1" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 39.0
+offset_right = 414.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="KitchenTileLine2" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 39.0
+offset_right = 465.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="KitchenTileLine3" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 39.0
+offset_right = 516.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="KitchenTileLine4" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 564.0
+offset_top = 39.0
+offset_right = 567.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="KitchenTileLine5" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 39.0
+offset_right = 618.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)
+
+[node name="KitchenTileLine6" type="ColorRect" parent="RestaurantInterior"]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 39.0
+offset_right = 669.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.67, 0.77, 0.7, 1)

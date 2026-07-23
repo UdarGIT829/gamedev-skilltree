@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://chbq6hfpogsst"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_vqhxf"]
+
+[resource]
+script = ExtResource("1_vqhxf")
+id = &"storyinorder"
+display_name = "Story in Order"
+description = "htghdf"
+claim = "I can tell a clear story by displaying text and events in the correct order."
+tier = 1
+prerequisite_ids = Array[StringName]([])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

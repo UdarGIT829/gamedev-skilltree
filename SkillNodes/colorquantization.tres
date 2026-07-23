@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bi7p3ldn0a65r"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_1mpxb"]
+
+[resource]
+script = ExtResource("1_1mpxb")
+id = &"colorquantization"
+display_name = "Color quantization"
+description = ""
+claim = "I can reduce an image to a chosen palette by replacing similar colors with selected colors."
+tier = 6
+prerequisite_ids = Array[StringName]([&"colorpalettes"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

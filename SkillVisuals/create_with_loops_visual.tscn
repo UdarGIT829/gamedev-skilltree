@@ -1,0 +1,252 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4mbymr7o7eft"]
+
+[ext_resource type="PackedScene" uid="uid://cdui21gjt8e0k" path="res://SkillVisuals/visual_template.tscn" id="1_template"]
+[ext_resource type="Script" uid="uid://3onr262qtqah" path="res://SkillVisuals/create_with_loops_visual.gd" id="2_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_background"]
+bg_color = Color(0.043, 0.055, 0.078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31, 0.4, 0.54, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_code"]
+bg_color = Color(0.075, 0.18, 0.3, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.21, 0.58, 0.82, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="CreateWithLoopsVisual" instance=ExtResource("1_template")]
+clip_contents = true
+mouse_filter = 2
+script = ExtResource("2_script")
+
+[node name="Background" type="Panel" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_background")
+
+[node name="Margin" type="MarginContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = -11.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Content" type="VBoxContainer" parent="Margin" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Margin/Content" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54, 0.75, 0.98, 1)
+theme_override_font_sizes/font_size = 14
+text = "CREATE WITH LOOPS"
+horizontal_alignment = 1
+
+[node name="CodeBlock" type="PanelContainer" parent="Margin/Content" index="1"]
+custom_minimum_size = Vector2(0, 108)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_code")
+
+[node name="CodeArea" type="Control" parent="Margin/Content/CodeBlock" index="0"]
+custom_minimum_size = Vector2(0, 104)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LineHighlight" type="ColorRect" parent="Margin/Content/CodeBlock/CodeArea" index="0"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 274.0
+offset_bottom = 35.0
+mouse_filter = 2
+color = Color(0.3, 0.67, 0.91, 0.2)
+
+[node name="LinePointer" type="Label" parent="Margin/Content/CodeBlock/CodeArea" index="1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 31.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(1, 0.82, 0.39, 1)
+theme_override_font_sizes/font_size = 15
+text = "▶"
+vertical_alignment = 1
+
+[node name="LoopHeader" type="Label" parent="Margin/Content/CodeBlock/CodeArea" index="2"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 8.0
+offset_right = 270.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.86, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "for index in 0 to 8"
+vertical_alignment = 1
+
+[node name="LoopBody" type="Label" parent="Margin/Content/CodeBlock/CodeArea" index="3"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 41.0
+offset_right = 270.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "create square at index"
+vertical_alignment = 1
+
+[node name="DoneLine" type="Label" parent="Margin/Content/CodeBlock/CodeArea" index="4"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 74.0
+offset_right = 270.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0.39, 0.84, 0.66, 1)
+theme_override_font_sizes/font_size = 14
+text = "loop complete"
+vertical_alignment = 1
+
+[node name="BlockRow" type="HBoxContainer" parent="Margin/Content" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Block0" type="ColorRect" parent="Margin/Content/BlockRow" index="0"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Block1" type="ColorRect" parent="Margin/Content/BlockRow" index="1"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Block2" type="ColorRect" parent="Margin/Content/BlockRow" index="2"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Block3" type="ColorRect" parent="Margin/Content/BlockRow" index="3"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Block4" type="ColorRect" parent="Margin/Content/BlockRow" index="4"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Block5" type="ColorRect" parent="Margin/Content/BlockRow" index="5"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Block6" type="ColorRect" parent="Margin/Content/BlockRow" index="6"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Block7" type="ColorRect" parent="Margin/Content/BlockRow" index="7"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Block8" type="ColorRect" parent="Margin/Content/BlockRow" index="8"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+color = Color(0.188, 0.224, 0.29, 1)
+
+[node name="Counters" type="HBoxContainer" parent="Margin/Content" index="3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Start" type="VBoxContainer" parent="Margin/Content/Counters" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Name" type="Label" parent="Margin/Content/Counters/Start" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59, 0.65, 0.75, 1)
+theme_override_font_sizes/font_size = 11
+text = "START"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Margin/Content/Counters/Start" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
+
+[node name="LiveCounter" type="VBoxContainer" parent="Margin/Content/Counters" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Name" type="Label" parent="Margin/Content/Counters/LiveCounter" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.39, 1)
+theme_override_font_sizes/font_size = 11
+text = "LIVE COUNTER"
+horizontal_alignment = 1
+
+[node name="LiveCounterValue" type="Label" parent="Margin/Content/Counters/LiveCounter" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.55, 1)
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
+
+[node name="End" type="VBoxContainer" parent="Margin/Content/Counters" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Name" type="Label" parent="Margin/Content/Counters/End" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59, 0.65, 0.75, 1)
+theme_override_font_sizes/font_size = 11
+text = "END"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Margin/Content/Counters/End" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "8"
+horizontal_alignment = 1
+
+[node name="StepTimer" type="Timer" parent="." index="2"]
+unique_name_in_owner = true
+autostart = true

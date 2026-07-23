@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://cxggrm1o8cqsy"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_1m4h7"]
+
+[resource]
+script = ExtResource("1_1m4h7")
+id = &"fragmentshader"
+display_name = "Fragment Shader"
+description = ""
+claim = "The color of the triangles between 3D vertices can be calculated with a fragment shader."
+tier = 9
+prerequisite_ids = Array[StringName]([&"3dvertexandtris"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

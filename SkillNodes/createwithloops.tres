@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://orrtr4u7xukn"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_fyq7o"]
+[ext_resource type="PackedScene" path="res://SkillVisuals/create_with_loops_visual.tscn" id="2_visual"]
+
+[resource]
+script = ExtResource("1_fyq7o")
+id = &"createwithloops"
+display_name = "Create with Loops"
+description = "Game objects are often very similar, whether it is trees, enemies, or food. 
+Using loops can reduce the blocks needed by a huge amount, it just requires a little math and planning."
+claim = "My game objects are very similar, so I should create them with loops."
+visual_scene = ExtResource("2_visual")
+tier = 1
+prerequisite_ids = Array[StringName]([])
+disabled = false

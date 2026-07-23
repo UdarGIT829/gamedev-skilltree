@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="SkillBranchData" load_steps=12 format=3 uid="uid://cffo8bdtwg8cj"]
+
+[ext_resource type="Script" uid="uid://deqtw4itoq2na" path="res://Resources/SkillPathData.gd" id="1_slpge"]
+[ext_resource type="Script" uid="uid://culne41vqkap6" path="res://Resources/SkillBranchData.gd" id="2_fjxfi"]
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="3_chvbf"]
+[ext_resource type="Resource" uid="uid://chbq6hfpogsst" path="res://SkillNodes/storyinorder.tres" id="4_breij"]
+[ext_resource type="Resource" uid="uid://bwrfcp4f70say" path="res://SkillNodes/waitforthemoment.tres" id="5_3qc83"]
+[ext_resource type="Resource" uid="uid://dswyx2qacjis0" path="res://SkillNodes/pausewithoutfreezing.tres" id="5_fjxfi"]
+[ext_resource type="Resource" uid="uid://caoqgh1gigtfy" path="res://SkillNodes/storeworldsandstories.tres" id="6_bpxl4"]
+
+[sub_resource type="Resource" id="Resource_yytcd"]
+script = ExtResource("1_slpge")
+source = ExtResource("4_breij")
+destination = ExtResource("5_3qc83")
+metadata/_custom_type_script = "uid://deqtw4itoq2na"
+
+[sub_resource type="Resource" id="Resource_40vc0"]
+script = ExtResource("1_slpge")
+source = ExtResource("5_3qc83")
+destination = ExtResource("6_bpxl4")
+metadata/_custom_type_script = "uid://deqtw4itoq2na"
+
+[sub_resource type="Resource" id="Resource_chvbf"]
+script = ExtResource("1_slpge")
+source = ExtResource("6_bpxl4")
+metadata/_custom_type_script = "uid://deqtw4itoq2na"
+
+[sub_resource type="Resource" id="Resource_jbaa2"]
+script = ExtResource("1_slpge")
+source = ExtResource("6_bpxl4")
+destination = ExtResource("5_fjxfi")
+metadata/_custom_type_script = "uid://deqtw4itoq2na"
+
+[resource]
+script = ExtResource("2_fjxfi")
+id = &"sequencing"
+display_name = "Sequencing"
+description = ""
+skills = Array[ExtResource("3_chvbf")]([ExtResource("4_breij"), ExtResource("5_3qc83"), ExtResource("6_bpxl4"), ExtResource("5_fjxfi")])
+paths = Array[ExtResource("1_slpge")]([SubResource("Resource_yytcd"), SubResource("Resource_40vc0"), SubResource("Resource_chvbf"), SubResource("Resource_jbaa2")])
+metadata/_custom_type_script = "uid://culne41vqkap6"

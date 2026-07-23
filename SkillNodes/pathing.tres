@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://vkqbttrpc0ed"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_m6bnb"]
+
+[resource]
+script = ExtResource("1_m6bnb")
+id = &"pathing"
+display_name = "Pathing"
+description = ""
+claim = "I should fully understand where a character can and cannot move based on its code WITHOUT running the game. "
+tier = 7
+prerequisite_ids = Array[StringName]([&"placementrules"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

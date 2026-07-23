@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://3oypl130ymlu"]
+
+[ext_resource type="Script" uid="uid://wfc57ccl3bho" path="res://main-script.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://tnf2gn1id4fi" path="res://skill_tree.tscn" id="2_tree"]
+[ext_resource type="PackedScene" uid="uid://crqtvpmwi6jgw" path="res://quiz.tscn" id="3_quiz"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="SkillTree" parent="." instance=ExtResource("2_tree")]
+layout_mode = 1
+
+[node name="Quiz" parent="." instance=ExtResource("3_quiz")]
+layout_mode = 1

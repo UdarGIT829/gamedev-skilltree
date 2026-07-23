@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SkillBranchData" load_steps=17 format=3 uid="uid://vuad781jkchw"]
+
+[ext_resource type="Script" uid="uid://deqtw4itoq2na" path="res://Resources/SkillPathData.gd" id="1_gj2jn"]
+[ext_resource type="Script" uid="uid://culne41vqkap6" path="res://Resources/SkillBranchData.gd" id="2_ci24m"]
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="3_8y8wk"]
+[ext_resource type="Resource" uid="uid://cnyei7qkcrbws" path="res://SkillNodes/multipleimages.tres" id="4_jxaq1"]
+[ext_resource type="Resource" uid="uid://cwdax4s840fij" path="res://SkillNodes/velocityandacceleration.tres" id="5_dlkml"]
+[ext_resource type="Resource" uid="uid://diyha7fobaplx" path="res://SkillNodes/complexcollisionboxes.tres" id="6_7ckrf"]
+[ext_resource type="Resource" uid="uid://bbipnmkiwu3lu" path="res://SkillNodes/dithering.tres" id="7_fal0e"]
+[ext_resource type="Resource" uid="uid://bkpfxitj6u7h4" path="res://SkillNodes/colorpalettes.tres" id="8_1mom5"]
+[ext_resource type="Resource" uid="uid://bi7p3ldn0a65r" path="res://SkillNodes/colorquantization.tres" id="9_ptp1n"]
+[ext_resource type="Resource" uid="uid://d3lq2wynxfddm" path="res://SkillNodes/unrealisticlighting.tres" id="10_tqvap"]
+[ext_resource type="Resource" uid="uid://bfk2ulifee7be" path="res://SkillNodes/3dvertexandtris.tres" id="11_3n70m"]
+[ext_resource type="Resource" uid="uid://bhqgpida01uul" path="res://SkillNodes/viewportspawning.tres" id="12_uiwk6"]
+[ext_resource type="Resource" uid="uid://bgjom5eds4rck" path="res://SkillNodes/placementrules.tres" id="13_ci24m"]
+[ext_resource type="Resource" uid="uid://vkqbttrpc0ed" path="res://SkillNodes/pathing.tres" id="14_8y8wk"]
+[ext_resource type="Resource" uid="uid://cxggrm1o8cqsy" path="res://SkillNodes/fragmentshader.tres" id="15_jxaq1"]
+[ext_resource type="Resource" uid="uid://4txdo578r67o" path="res://SkillNodes/vertexshader.tres" id="16_dlkml"]
+
+[resource]
+script = ExtResource("2_ci24m")
+id = &"visualsandphysics"
+display_name = "Visuals & Physics"
+description = "asfasfsa"
+skills = Array[ExtResource("3_8y8wk")]([ExtResource("4_jxaq1"), ExtResource("5_dlkml"), ExtResource("6_7ckrf"), ExtResource("7_fal0e"), ExtResource("8_1mom5"), ExtResource("9_ptp1n"), ExtResource("10_tqvap"), ExtResource("11_3n70m"), ExtResource("12_uiwk6"), ExtResource("13_ci24m"), ExtResource("14_8y8wk"), ExtResource("15_jxaq1"), ExtResource("16_dlkml")])
+paths = Array[ExtResource("1_gj2jn")]([])
+metadata/_custom_type_script = "uid://culne41vqkap6"

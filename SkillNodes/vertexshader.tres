@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://4txdo578r67o"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_scegf"]
+
+[resource]
+script = ExtResource("1_scegf")
+id = &"vertexshader"
+display_name = "Vertex Shader"
+description = ""
+claim = "A vertex shader can change where 3D vertices appear to be without automatically changing the object's physics."
+tier = 9
+prerequisite_ids = Array[StringName]([&"3dvertexandtris"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

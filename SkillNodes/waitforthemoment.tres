@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bwrfcp4f70say"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_sqmkp"]
+
+[resource]
+script = ExtResource("1_sqmkp")
+id = &"waitforthemoment"
+display_name = "Wait for the Moment"
+description = ""
+claim = "In the same moment that my player is destroyed, I can create a new one at a spawn point. If an enemy is destroyed, I can grant the point at that exact moment."
+tier = 2
+prerequisite_ids = Array[StringName]([&"storyinorder"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

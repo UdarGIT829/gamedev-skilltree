@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://diyha7fobaplx"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_fhh2c"]
+
+[resource]
+script = ExtResource("1_fhh2c")
+id = &"complexcollisionboxes"
+display_name = "The sprite box is not the object"
+description = ""
+claim = "A sprite is pixels drawn inside a square, but the object's collision or overlap shape does not need to be that square."
+tier = 3
+prerequisite_ids = Array[StringName]([&"velocityandacceleration"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

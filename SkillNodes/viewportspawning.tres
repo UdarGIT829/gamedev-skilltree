@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bhqgpida01uul"]
+
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_ucljw"]
+
+[resource]
+script = ExtResource("1_ucljw")
+id = &"viewportspawning"
+display_name = "Viewport-based spawning"
+description = ""
+claim = "I can create and remove objects based on what part of the world the player can currently see."
+tier = 5
+prerequisite_ids = Array[StringName]([&"complexcollisionboxes"])
+disabled = false
+metadata/_custom_type_script = "uid://d2sjfotd67vd8"

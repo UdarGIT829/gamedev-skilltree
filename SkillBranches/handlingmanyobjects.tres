@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SkillBranchData" load_steps=11 format=3 uid="uid://buk2gudr4t8e6"]
+
+[ext_resource type="Script" uid="uid://deqtw4itoq2na" path="res://Resources/SkillPathData.gd" id="1_xhb83"]
+[ext_resource type="Resource" uid="uid://cs2js87e7j0p1" path="res://SkillNodes/storeinanarray.tres" id="2_rtron"]
+[ext_resource type="Resource" uid="uid://orrtr4u7xukn" path="res://SkillNodes/createwithloops.tres" id="3_vpr2q"]
+[ext_resource type="Script" uid="uid://culne41vqkap6" path="res://Resources/SkillBranchData.gd" id="4_u8v58"]
+[ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="5_0224x"]
+[ext_resource type="Resource" uid="uid://c400gmp0ewtcr" path="res://SkillNodes/storeinadictionary.tres" id="6_cnn3q"]
+[ext_resource type="Resource" uid="uid://kl6uwijgno7o" path="res://SkillNodes/storeinadatabase.tres" id="7_bc2pi"]
+
+[sub_resource type="Resource" id="Resource_vthio"]
+script = ExtResource("1_xhb83")
+source = ExtResource("3_vpr2q")
+destination = ExtResource("2_rtron")
+metadata/_custom_type_script = "uid://deqtw4itoq2na"
+
+[sub_resource type="Resource" id="Resource_xhb83"]
+script = ExtResource("1_xhb83")
+source = ExtResource("2_rtron")
+destination = ExtResource("6_cnn3q")
+metadata/_custom_type_script = "uid://deqtw4itoq2na"
+
+[sub_resource type="Resource" id="Resource_rtron"]
+script = ExtResource("1_xhb83")
+source = ExtResource("6_cnn3q")
+destination = ExtResource("7_bc2pi")
+metadata/_custom_type_script = "uid://deqtw4itoq2na"
+
+[resource]
+script = ExtResource("4_u8v58")
+id = &"handlingmanyobjects"
+display_name = "Handling Many Objects"
+description = "Handling many objects is a necessary skill for game development. Hardcoding storage and retrieval always causes problems later."
+skills = Array[ExtResource("5_0224x")]([ExtResource("3_vpr2q"), ExtResource("2_rtron"), ExtResource("6_cnn3q"), ExtResource("7_bc2pi")])
+paths = Array[ExtResource("1_xhb83")]([SubResource("Resource_vthio"), SubResource("Resource_xhb83"), SubResource("Resource_rtron")])
+metadata/_custom_type_script = "uid://culne41vqkap6"
