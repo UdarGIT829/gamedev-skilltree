@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://cdui21gjt8e0k" path="res://SkillVisuals/visual_template.tscn" id="1_template"]
+[ext_resource type="Script" path="res://SkillVisuals/story_in_order_visual.gd" id="2_script"]
+
+[node name="StoryInOrderVisual" instance=ExtResource("1_template")]
+clip_contents = true
+mouse_filter = 2
+script = ExtResource("2_script")

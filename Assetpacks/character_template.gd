@@ -13,7 +13,7 @@ class_name SkillTreeCharacter
 		if not dash_enabled:
 			_dash_time_remaining = 0.0
 @export_range(0.05, 2.0, 0.05, "or_greater") var dash_duration := 0.2
-@export_range(0.0, 10000.0, 10.0, "or_greater") var dash_acceleration := 1200.0
+@export_range(0.0, 10000.0, 10.0, "or_greater") var dash_speed := 340.0
 
 @export_group("Jump")
 @export_range(0.05, 5.0, 0.05, "or_greater") var jump_duration := 0.5
@@ -35,6 +35,10 @@ class_name SkillTreeCharacter
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 var movement_direction := Vector2.ZERO
+## The character's actual frame-to-frame velocity change in pixels per second
+## squared. CharacterBody2D owns velocity; this script exposes its matching
+## acceleration vector for in-world teaching visuals.
+var current_acceleration := Vector2.ZERO
 var _facing_direction := Vector2.DOWN
 var _walking_frame := 0.0
 var _dash_direction := Vector2.ZERO
@@ -52,10 +56,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction := movement_direction
+	var velocity_before_update := velocity
 
 	if _dash_time_remaining > 0.0:
 		_facing_direction = _dash_direction
-		velocity += _dash_direction * dash_acceleration * delta
+		# Dash is a direct CharacterBody2D velocity, while arrow-key movement
+		# approaches direction * speed through the acceleration value below.
+		velocity = _dash_direction * dash_speed
 		_dash_time_remaining = maxf(_dash_time_remaining - delta, 0.0)
 		_advance_walking_animation(delta)
 	elif direction.is_zero_approx():
@@ -70,6 +77,11 @@ func _physics_process(delta: float) -> void:
 		_advance_walking_animation(delta)
 
 	move_and_slide()
+	current_acceleration = (
+		(velocity - velocity_before_update) / delta
+		if delta > 0.0
+		else Vector2.ZERO
+	)
 	_update_jump(delta)
 	_update_sprite()
 

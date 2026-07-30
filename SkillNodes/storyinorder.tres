@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://chbq6hfpogsst"]
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://chbq6hfpogsst"]
 
 [ext_resource type="Script" uid="uid://d2sjfotd67vd8" path="res://Resources/SkillData.gd" id="1_vqhxf"]
+[ext_resource type="PackedScene" path="res://SkillVisuals/story_in_order_visual.tscn" id="2_visual"]
 
 [resource]
 script = ExtResource("1_vqhxf")
@@ -8,6 +9,7 @@ id = &"storyinorder"
 display_name = "Story in Order"
 description = "htghdf"
 claim = "I can tell a clear story by displaying text and events in the correct order."
+visual_scene = ExtResource("2_visual")
 tier = 1
 prerequisite_ids = Array[StringName]([])
 disabled = false
